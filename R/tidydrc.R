@@ -38,14 +38,13 @@
 #' llm %>% unnest(coefs)
 #' # estimate the effective doses for several response levels, as a tibble
 #' names(llm$drmod) <- as.character(llm$Herbicide)
-#' EDs <- map(llm$drmod, ED, c(10, 50, 90))
-#' map_df(EDs, as_tibble, rownames = "level", .id = "Herbicide")
+#' map(llm$drmod, ED, c(10, 50, 90)) %>% map_df(EDs, as_tibble, rownames = "level", .id = "Herbicide")
 #'
 #' ### Fit a Michaelis-Menten kinetics model ###
 #' # for the built-in Puromycin dataset and get the Km values with std. error
 #' mm <- tidydrc(Puromycin, conc, rate, model = MM.3(), state)
 #' names(mm$drmod) <- as.character(mm$state)
-#' map(mm$drmod, ED, 50)
+#' map(mm$drmod, ED, 50) %>% map_df(as_tibble, .id = "sample")
 #'
 #'
 #' @seealso \link[tidydrc]{tidydrc_plot}

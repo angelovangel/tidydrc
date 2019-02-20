@@ -30,7 +30,7 @@ tidydrc_plot <- function(modeldf, ed50 = FALSE, confint = FALSE, ...) {
   p <- modeldf %>% unnest(data) %>%
     ggplot(aes_(...)) +
     geom_point(aes_(~d,  ~r), alpha = 0.6, stroke = 0, size = 2) +
-    geom_line(aes_(~dose, ~pred), color = "red", data = modeldf %>% unnest(pred)) +
+    geom_line(aes_(~dose, ~pred), data = modeldf %>% unnest(pred)) +
     theme_bw()
   ifelse(ed50 == FALSE,
          p,
