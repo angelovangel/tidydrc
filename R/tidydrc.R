@@ -51,16 +51,6 @@
 #' @export
 
 
-
-# the fourth (and subsequent) arguments can be used for grouping by sample, treatment etc. before modelling
-# if the fourth argument is not supplied, it fits a drm to all the dose-response values
-
-
-# for example
-# do_drm(S.alba, Dose, DryMatter, Herbicide)
-
-
-####=====================
  tidydrc <- function(data, dose, response, model = LL.4(), ...) {
 
  # using eclipsis (...) for group_by(...), so that arbitrary number of grouping variables can be used
