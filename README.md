@@ -3,7 +3,7 @@ tidydrc
 
 ## Description
 Tidy modelling of dose-response relationships with the `drc` package in `R`.    
-This is a wrapper for [`drc`](https://cran.r-project.org/web/packages/drc/index.html) by Christian Ritz and Jens Strebig, which is probably the best package for modelling dose-response.  
+This is a wrapper for [`drc`](https://cran.r-project.org/web/packages/drc/index.html) by Christian Ritz, which is probably the best package for modelling dose-response.  
 `tidydrc` contains two functions which make it easier to generate and plot these models. Install it with:
 
 `devtools::install_github("angelovangel/tidydrc")`
@@ -28,4 +28,5 @@ scale_x_log10()
 
 A more involved example...
 
-
+## References
+Ritz, C., Baty, F., Streibig, J. C., Gerhard, D. (2015) Dose-Response Analysis Using R PLOS ONE, 10(12), e0146021
