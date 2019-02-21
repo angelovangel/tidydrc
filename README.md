@@ -29,4 +29,4 @@ scale_x_log10()
 A more involved example...
 
 ## References
-Ritz, C., Baty, F., Streibig, J. C., Gerhard, D. (2015) Dose-Response Analysis Using R PLOS ONE, 10(12), e0146021
+[Ritz, C., Baty, F., Streibig, J. C., Gerhard, D. (2015) Dose-Response Analysis Using R PLOS ONE, 10(12), e0146021](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0146021)
