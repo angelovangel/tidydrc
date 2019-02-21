@@ -27,11 +27,11 @@
 #' # using the built-in dataset growthdata3
 #' data(growthdata3)
 #' gdata <- growthdata3 %>% gather(strain, value, strain1:strain3)
-#' llm.1 <- gdata %>% tidydrc(dose = hours, response = value, model = LL.4(), strain)
+#' llm.1 <- gdata %>% tidydrc(dose = hours, response = value, model = LL.5(), strain)
 #' # get the coefficients of the model(s)
 #' llm.1 %>% unnest(coefs)
 #' # make a ggplot, facetting by strain
-#' llm.1 %>% tidydrc_plot(confint = TRUE) + facet_grid(.~strain)
+#' llm.1 %>% tidydrc_plot(confint = TRUE) + facet_grid(. ~ strain)
 #'
 #' ### Using the S.alba dataset from drc ###
 #' llm <- tidydrc(S.alba, Dose, DryMatter, model = LL.4(), Herbicide)
