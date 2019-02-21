@@ -48,7 +48,7 @@ llm <- tidydrc(S.alba, Dose, DryMatter, model = LL.4(), Herbicide)
 llm \%>\% unnest(coefs)
 # estimate the effective doses for several response levels, as a tibble
 names(llm$drmod) <- as.character(llm$Herbicide)
-map(llm$drmod, ED, c(10, 50, 90)) \%>\% map_df(EDs, as_tibble, rownames = "level", .id = "Herbicide")
+map(llm$drmod, ED, c(10, 50, 90)) \%>\% map_df(as_tibble, rownames = "level", .id = "Herbicide")
 
 ### Fit a Michaelis-Menten kinetics model ###
 # for the built-in Puromycin dataset and get the Km values with std. error

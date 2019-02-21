@@ -14,11 +14,11 @@
 #' @examples
 #' # directly piping the output of tidydrc()
 #' p <- tidydrc(S.alba, Dose, DryMatter, model = LL.4(), Herbicide) %>%
-#'      tidydrc_plot(ed50 = TRUE, color = ~Herbicide)
+#'      tidydrc_plot(ed50 = TRUE, confint = TRUE, color = ~Herbicide)
 #' p
 #'
 #' # the ggplot object can be manipulated further as usual
-#' p + facet_grid(. ~ Herbicide) +
+#' p + facet_wrap(~Herbicide, ncol = 1) +
 #'     scale_x_log10() +
 #'     labs(title = "Potency of glyphosate and bentazone in Sinapsis alba")
 #'
