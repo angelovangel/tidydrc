@@ -25,13 +25,15 @@
 #' @examples
 #' ### Logistic regression of bacterial growth data ###
 #' # using the built-in dataset growthdata3
+#' library(tidyverse)
 #' data(growthdata3)
+#'
 #' gdata <- growthdata3 %>% gather(strain, value, strain1:strain3)
 #' llm.1 <- gdata %>% tidydrc(dose = hours, response = value, model = LL.5(), strain)
 #' # get the coefficients of the model(s)
 #' llm.1 %>% unnest(coefs)
 #' # make a ggplot, facetting by strain
-#' llm.1 %>% tidydrc_plot(confint = TRUE) + facet_grid(. ~ strain)
+#' llm.1 %>% tidydrc_plot(confint = TRUE) + ggplot2::facet_grid(. ~ strain)
 #'
 #' ### Using the S.alba dataset from drc ###
 #' llm <- tidydrc(S.alba, Dose, DryMatter, model = LL.4(), Herbicide)
@@ -83,17 +85,17 @@
 
   predict.fun <- function(x) {
     cbind(modelr::add_predictions(preddf, x),
-          as.tibble(predict(x, newdata = preddf, interval = "confidence"))
+          dplyr::as_tibble(predict(x, newdata = preddf, interval = "confidence"))
           )
   }
 
  coefs.fun <- function(x) {
-   coef(x) %>% tibble(parameter = names(.), value = .) # instead of tidy()
+   coef(x) %>% dplyr::tibble(parameter = names(.), value = .) # instead of tidy()
    }
 
- data %>% group_by(...) %>%
+ data %>% dplyr::group_by(...) %>%
           tidyr::nest() %>%
-          mutate(
+          dplyr::mutate(
             drmod = purrr::map(data, drm.func),
             pred = purrr::map(drmod, predict.fun),
             coefs = purrr::map(drmod, coefs.fun)

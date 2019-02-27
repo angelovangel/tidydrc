@@ -20,9 +20,6 @@ to make things realistic.
 \examples{
 data("growthdata3")
 
-# make it long, for using it in tidydrc()
-growthdata3 \%>\% gather(sample, value, -hours)
-
 
 }
 \author{

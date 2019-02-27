@@ -13,6 +13,7 @@
 #'
 #' @examples
 #' # directly piping the output of tidydrc()
+#' library(tidyverse)
 #' p <- tidydrc(S.alba, Dose, DryMatter, model = LL.4(), Herbicide) %>%
 #'      tidydrc_plot(ed50 = TRUE, confint = TRUE, color = ~Herbicide)
 #' p
