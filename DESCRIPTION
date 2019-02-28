@@ -6,7 +6,7 @@ Author: Angel Angelov
 Maintainer: Angel Angelov <aangeloo@gmail.com>
 Description: Tidy wrapper for the drc package.
     Includes functions and examples for modelling with the drc package, keeping the models in tidy format.
-License: MIT
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1.9000

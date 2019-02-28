@@ -20,7 +20,7 @@
 #'
 #' @return A tibble with list-columns containing the data, the predictions and the coefficients of the model.
 #'
-#' @usage tidydrc(data, dose, response, model, ...)
+#' @usage tidydrc_model(data, dose, response, model, ...)
 #'
 #' @examples
 #' ### Logistic regression of bacterial growth data ###
@@ -29,14 +29,14 @@
 #' data(growthdata3)
 #'
 #' gdata <- growthdata3 %>% gather(strain, value, strain1:strain3)
-#' llm.1 <- gdata %>% tidydrc(dose = hours, response = value, model = LL.5(), strain)
+#' llm.1 <- gdata %>% tidydrc_model(dose = hours, response = value, model = LL.5(), strain)
 #' # get the coefficients of the model(s)
 #' llm.1 %>% unnest(coefs)
 #' # make a ggplot, facetting by strain
 #' llm.1 %>% tidydrc_plot(confint = TRUE) + ggplot2::facet_grid(. ~ strain)
 #'
 #' ### Using the S.alba dataset from drc ###
-#' llm <- tidydrc(S.alba, Dose, DryMatter, model = LL.4(), Herbicide)
+#' llm <- tidydrc_model(S.alba, Dose, DryMatter, model = LL.4(), Herbicide)
 #' llm %>% unnest(coefs)
 #' # estimate the effective doses for several response levels, as a tibble
 #' names(llm$drmod) <- as.character(llm$Herbicide)
@@ -44,7 +44,7 @@
 #'
 #' ### Fit a Michaelis-Menten kinetics model ###
 #' # for the built-in Puromycin dataset and get the Km values with std. error
-#' mm <- tidydrc(Puromycin, conc, rate, model = MM.3(), state)
+#' mm <- tidydrc_model(Puromycin, conc, rate, model = MM.3(), state)
 #' names(mm$drmod) <- as.character(mm$state)
 #' map(mm$drmod, ED, 50) %>% map_df(as_tibble, .id = "sample")
 #'
@@ -53,7 +53,7 @@
 #' @export
 
 
- tidydrc <- function(data, dose, response, model = LL.4(), ...) {
+ tidydrc_model <- function(data, dose, response, model = LL.4(), ...) {
 
  # using eclipsis (...) for group_by(...), so that arbitrary number of grouping variables can be used
  # like this dplyr works in the function, no need for quosure and !!! WHY??
