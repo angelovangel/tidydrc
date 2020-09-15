@@ -77,7 +77,7 @@
   # dataframe for predictions
   # add 10% below and above the data to the predictions
   preddf <- data.frame(
-    dose = seq(min(data$d, na.rm = TRUE) - (0.1 * min(data$d, na.rm = TRUE)),
+    dose = lseq(min(data$d, na.rm = TRUE) - (0.1 * min(data$d, na.rm = TRUE)),
                max(data$d, na.rm = TRUE) + (0.1 * max(data$d, na.rm = TRUE)),
                length.out = length(data$d)
                )

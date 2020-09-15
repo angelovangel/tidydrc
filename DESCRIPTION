@@ -13,13 +13,13 @@ RoxygenNote: 6.1.1.9000
 Roxygen: list(markdown = TRUE)
 Depends:
     R (>= 2.10),
-    drc (>= 3.0.1)
-Imports:
+    drc (>= 3.0.1),
     tidyr,
     dplyr,
     ggplot2,
     purrr,
-    modelr
+    modelr,
+    emdbook
 Suggests: 
     tidyverse
     
