@@ -9,7 +9,7 @@ Description: Tidy wrapper for the drc package.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.1.1.9000
+RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)
 Depends:
     R (>= 2.10),
@@ -18,8 +18,6 @@ Depends:
     dplyr,
     ggplot2,
     purrr,
-    modelr,
-    emdbook
+    modelr
 Suggests: 
     tidyverse
-    

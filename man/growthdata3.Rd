@@ -4,11 +4,13 @@
 \name{growthdata3}
 \alias{growthdata3}
 \title{Growth data of 3 bacterial strains}
-\format{A data frame with 48 rows and 4 variables: \describe{
+\format{
+A data frame with 48 rows and 4 variables: \describe{
 \item{hours}{time after starting experiment, in hours}
 \item{strain1}{optical density values for strain1, measured at 600nm}
 \item{strain2}{optical density values for strain2, measured at 600nm}
-\item{strain3}{optical density values for strain3, measured at 600nm}}}
+\item{strain3}{optical density values for strain3, measured at 600nm}}
+}
 \usage{
 data("growthdata3")
 }

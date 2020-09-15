@@ -76,13 +76,18 @@
 
   # dataframe for predictions
   # add 10% below and above the data to the predictions
-  preddf <- data.frame(
-    dose = lseq(
-      from = ifelse(min(data$d) != 0, min(data$d, na.rm = TRUE) - (0.1 * min(data$d, na.rm = TRUE)), 1),
-      to = max(data$d, na.rm = TRUE) + (0.1 * max(data$d, na.rm = TRUE)),
-      length.out = length(data$d)
-               )
-            )
+  # to generate log scale sequence for preddf:
+  # exp(seq(log(from), log(to), length.out = length.out)) 
+  from <- ifelse(min(data$d) <= 0,
+                 0.1,
+                 min(data$d, na.rm = TRUE) - (0.1 * min(data$d, na.rm = TRUE)))
+  to <- max(data$d, na.rm = TRUE) + (0.1 * max(data$d, na.rm = TRUE))
+  
+  preddf <- data.frame(dose = exp(seq(
+    from = log(from),
+    to = log(to),
+    length.out = length(data$d) * 10
+  )))
 
   predict.fun <- function(x) {
     cbind(modelr::add_predictions(preddf, x),
